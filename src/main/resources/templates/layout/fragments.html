@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<th:block th:fragment="headerFragment(activeTab)">
+    <header>
+        <script>
+            function changeDisplay() {
+
+                var con = document.getElementById('dd-content');
+
+                if (con.style.display == 'none') {
+                    con.style.display = 'block';
+                } else {
+                    con.style.display = 'none';
+                }
+            }
+        </script>
+
+
+        <!-- 네비게이션 바 -->
+        <nav class="navbar navbar-expand-sm">
+
+            <div class="navbar-collapse collapse justify-content-start" id="navbarSupportedContent">
+                <a class="navbar-brand logo-a" href="/" th:href="@{/}">BangBang</a>
+
+                <ul class="navbar-nav mr-auto">
+
+                </ul>
+
+                <!-- 로그인을 안 했을 때 -->
+                <ul sec:authorize="!isAuthenticated()" class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link menu-aa" th:href="@{/login}">로그인</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+    </header>
+</th:block>
+
+<!-- 푸터 -->
+<th:block th:fragment="footerFragment">
+    <footer class="jumbotron jumbotron-fluid text-center banner" style="margin-bottom:0; background-color:#eeeeee">
+
+
+
+        <p class="footer-menu-items footer-menu-items-1">INFO</p>
+        <p class="footer-menu-items footer-menu-items-1">SUPPORT</p>
+        <p class="footer-menu-items footer-menu-items-1">CONNECTION</p>
+
+        <br/>
+
+        <p class="footer-menu-items footer-menu-items-2">이용약관</p>
+        <p class="footer-menu-items footer-menu-items-2">&nbsp;&nbsp;|&nbsp;&nbsp;</p>
+        <p class="footer-menu-items footer-menu-items-2">개인정보취급방침</p>
+
+        <p class="footer-menu-items footer-menu-items-3">&copy;Mega IT 4th Team1</p>
+    </footer>
+</th:block>
+
+
+</html>
