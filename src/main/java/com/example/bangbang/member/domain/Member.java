@@ -2,12 +2,14 @@ package com.example.bangbang.member.domain;
 
 import com.example.bangbang.common.domain.BaseTimeEntity;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NonNull;
+import lombok.*;
 
 @Entity
 @Table(name="member")
 @Getter
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class Member  extends BaseTimeEntity {
 
     @Id
@@ -29,5 +31,7 @@ public class Member  extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     private MemberType memberType;
 
-
+    public void findName(String name){
+        this.name = name;
+    }
 }

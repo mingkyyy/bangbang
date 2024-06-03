@@ -1,5 +1,6 @@
 package com.example.bangbang.common.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
@@ -15,8 +16,10 @@ import java.time.LocalDateTime;
 public class BaseTimeEntity {
 
     @CreatedDate
+    @Column(name = "createDate")
     private LocalDateTime createDate;
 
     @LastModifiedDate
+    @Column(name = "modifiedDate")
     private LocalDateTime modifiedDate;
 }
